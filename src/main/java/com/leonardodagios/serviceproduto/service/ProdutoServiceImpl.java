@@ -1,5 +1,6 @@
 package com.leonardodagios.serviceproduto.service;
 
+import com.leonardodagios.serviceproduto.event.ProdutoPersistEvent;
 import com.leonardodagios.serviceproduto.model.Produto;
 import com.leonardodagios.serviceproduto.repository.ProdutoRepository;
 import jakarta.persistence.NoResultException;
@@ -22,7 +23,12 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public Produto save(Produto produto) {
-        return produtoRepository.save(produto);
+
+        Produto produtoPersist = produtoRepository.save(produto);
+        applicationEventPublisher.publishEvent( new ProdutoPersistEvent(this, produtoPersist));
+
+        return produtoPersist;
+
     }
 
     @Override
