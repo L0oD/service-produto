@@ -72,6 +72,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-artemis</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.messaginghub</groupId>
+            <artifactId>pooled-jms</artifactId>
+        </dependency>
 
     </dependencies>
 
@@ -87,10 +91,10 @@
                 <version>3.4.0</version> <!-- Verifique a versão mais recente no repositório Maven -->
                 <configuration>
                     <from>
-                        <image>openjdk:15-jdk-slim-buster</image>
+                        <image>openjdk:17-alpine</image>
                     </from>
                     <to>
-                        <image>leonardodagios/produto:${version}</image>
+                        <image>leonardodagios/produto:${project.version}</image>
                     </to>
                     <container>
                         <mainClass>com.leonardodagios.serviceproduto.ServiceProdutoApplication</mainClass>
